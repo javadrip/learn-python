@@ -12,6 +12,7 @@ screen.tracer(0)
 
 player = Player()
 car_manager = CarManager()
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkeypress(player.move, "Up")
@@ -30,7 +31,7 @@ while game_is_on:
             game_is_on = False
 
     # Detect player
-    if player.ycor() > 20:
+    if player.ycor() > 260:
         game_is_on = False
 
 screen.exitonclick()
