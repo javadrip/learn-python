@@ -29,4 +29,8 @@ while game_is_on:
         if car.distance(player) < 20:
             game_is_on = False
 
+    # Detect player
+    if player.ycor() > 20:
+        game_is_on = False
+
 screen.exitonclick()
