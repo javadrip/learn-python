@@ -23,7 +23,7 @@ button = Button(text="Click me", command=button_clicked)
 button.pack()
 
 # Display input field
-input = Entry()
+input = Entry(width=10)
 input.pack()
 
 
