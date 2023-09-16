@@ -2,7 +2,7 @@ from tkinter import *
 
 window = Tk()
 window.title("Mile to Km Converter")
-window.minsize(width=500, height=300)
+window.config(padx=20, pady=20)
 
 input = Entry()
 input.grid(row=0, column=1)
@@ -21,7 +21,7 @@ km.grid(row=1, column=2)
 
 
 def convert():
-    new_value = input.get()
+    new_value = float(input.get()) * 1.609344
     converted_value.config(text=new_value)
 
 
