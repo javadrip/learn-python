@@ -19,4 +19,7 @@ converted_value.grid(row=1, column=1)
 km = Label(text="Km", font=("Arial", 24))
 km.grid(row=1, column=2)
 
+calculate = Button(text="Calculate")
+calculate.grid(row=2, column=1)
+
 window.mainloop()
