@@ -13,4 +13,7 @@ miles.grid(row=0, column=2)
 equal = Label(text="is equal to", font=("Arial", 24))
 equal.grid(row=1, column=0)
 
+converted_value = Label(text="0", font=("Arial", 24))
+converted_value.grid(row=1, column=1)
+
 window.mainloop()
