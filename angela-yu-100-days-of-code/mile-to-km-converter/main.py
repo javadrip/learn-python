@@ -19,7 +19,13 @@ converted_value.grid(row=1, column=1)
 km = Label(text="Km", font=("Arial", 24))
 km.grid(row=1, column=2)
 
-calculate = Button(text="Calculate")
+
+def convert():
+    new_value = input.get()
+    converted_value.config(text=new_value)
+
+
+calculate = Button(text="Calculate", command=convert)
 calculate.grid(row=2, column=1)
 
 window.mainloop()
