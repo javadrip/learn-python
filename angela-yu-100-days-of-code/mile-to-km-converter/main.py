@@ -16,4 +16,7 @@ equal.grid(row=1, column=0)
 converted_value = Label(text="0", font=("Arial", 24))
 converted_value.grid(row=1, column=1)
 
+km = Label(text="Km", font=("Arial", 24))
+km.grid(row=1, column=2)
+
 window.mainloop()
