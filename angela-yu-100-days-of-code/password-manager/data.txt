@@ -1,2 +1,0 @@
-test | dummyemail@gmail.com | asd
-next | dummyemail@gmail.com | line
