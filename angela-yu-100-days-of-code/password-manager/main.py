@@ -11,7 +11,9 @@ def save():
 
     # Using with will close the file sutomatically without having to end with .close()
     with open("data.txt", "a") as data_file:
-        data_file.write(f"{website} | {username} | {password}")
+        data_file.write(f"{website} | {username} | {password}\n")
+        website_entry.delete(0, END)
+        password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
