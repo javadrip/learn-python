@@ -7,9 +7,9 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 25
-SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 20
+WORK_MIN = 1
+SHORT_BREAK_MIN = 1
+LONG_BREAK_MIN = 1
 reps = 0
 
 # ---------------------------- TIMER RESET ------------------------------- #
@@ -26,10 +26,13 @@ def start_timer():
 
     if reps % 8 == 0:
         countdown(long_break_sec)
+        title_label.config(text="Long break!", fg=RED)
     elif reps % 2 == 0:
         countdown(short_break_sec)
+        title_label.config(text="Short break!", fg=PINK)
     else:
         countdown(work_sec)
+        title_label.config(text="WORK!", fg=GREEN)
 
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
@@ -45,6 +48,11 @@ def countdown(count):
     else:
         # Starts next stage of countdown when timer gets to 0
         start_timer()
+        marks = ""
+        work_sessions = math.floor(reps / 2)
+        for _ in range(work_sessions):
+            marks += "✔"
+        check.config(text=marks)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -70,7 +78,7 @@ start_button.grid(row=2, column=0)
 reset_button = Button(text="Reset", highlightbackground=YELLOW)
 reset_button.grid(row=2, column=2)
 
-check = Label(text="✔", font=(FONT_NAME, 48, "bold"), fg=GREEN, bg=YELLOW)
+check = Label(font=(FONT_NAME, 48, "bold"), fg=GREEN, bg=YELLOW)
 check.grid(row=3, column=1)
 
 
