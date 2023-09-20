@@ -25,6 +25,9 @@ window.config(padx=100, pady=50, bg=YELLOW)
 title_label = Label(text="Timer", font=(FONT_NAME, 48, "bold"), fg=GREEN, bg=YELLOW)
 title_label.grid(row=0, column=1)
 
+start_button = Button(text="Start", highlightbackground=YELLOW)
+start_button.grid(row=2, column=0)
+
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")
 canvas.create_image(100, 112, image=tomato_img)
