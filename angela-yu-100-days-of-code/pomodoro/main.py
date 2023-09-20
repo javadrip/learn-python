@@ -28,6 +28,9 @@ title_label.grid(row=0, column=1)
 start_button = Button(text="Start", highlightbackground=YELLOW)
 start_button.grid(row=2, column=0)
 
+reset_button = Button(text="Reset", highlightbackground=YELLOW)
+reset_button.grid(row=2, column=2)
+
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")
 canvas.create_image(100, 112, image=tomato_img)
