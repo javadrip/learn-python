@@ -31,6 +31,9 @@ start_button.grid(row=2, column=0)
 reset_button = Button(text="Reset", highlightbackground=YELLOW)
 reset_button.grid(row=2, column=2)
 
+check = Label(text="✔", font=(FONT_NAME, 48, "bold"), fg=GREEN, bg=YELLOW)
+check.grid(row=3, column=1)
+
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")
 canvas.create_image(100, 112, image=tomato_img)
