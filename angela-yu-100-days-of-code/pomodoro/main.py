@@ -1,3 +1,4 @@
+import math
 from tkinter import *
 
 # ---------------------------- CONSTANTS ------------------------------- #
@@ -17,7 +18,9 @@ LONG_BREAK_MIN = 20
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 def countdown(count):
-    canvas.itemconfig(timer_text, text=count)
+    count_min = math.floor(count / 60)
+    count_sec = count % 60
+    canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
     if count > 0:
         window.after(1000, countdown, count - 1)
 
@@ -39,7 +42,7 @@ timer_text = canvas.create_text(
 )
 canvas.grid(row=1, column=1)
 
-countdown(5)
+countdown(300)
 
 start_button = Button(text="Start", highlightbackground=YELLOW)
 start_button.grid(row=2, column=0)
