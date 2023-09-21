@@ -131,7 +131,16 @@ def save():
 
 
 # ---------------------------- SEARCH ------------------------------- #
-# def search():
+def search():
+    website = website_entry.get()
+    with open("data.json") as data_file:
+        data = json.load(data_file)
+        if website in data:
+            username = data[website]["username"]
+            password = data[website]["password"]
+            messagebox.showinfo(
+                title=website, message=f"Username: {username}\nPassword: {password}"
+            )
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -151,7 +160,7 @@ website_label.grid(row=1, column=0)
 website_entry = Entry(width=23)
 website_entry.grid(row=1, column=1)
 website_entry.focus()
-search_button = Button(text="Search", width=13)
+search_button = Button(text="Search", width=13, command=search)
 search_button.grid(row=1, column=2)
 
 # Username
