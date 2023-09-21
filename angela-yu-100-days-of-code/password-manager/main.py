@@ -130,6 +130,10 @@ def save():
             password_entry.delete(0, END)
 
 
+# ---------------------------- SEARCH ------------------------------- #
+# def search():
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Password manager")
@@ -144,9 +148,11 @@ canvas.grid(row=0, column=1)
 # Website
 website_label = Label(text="Website:")
 website_label.grid(row=1, column=0)
-website_entry = Entry(width=41)
-website_entry.grid(row=1, column=1, columnspan=2)
+website_entry = Entry(width=23)
+website_entry.grid(row=1, column=1)
 website_entry.focus()
+search_button = Button(text="Search", width=13)
+search_button.grid(row=1, column=2)
 
 # Username
 username_label = Label(text="Email/Username:")
