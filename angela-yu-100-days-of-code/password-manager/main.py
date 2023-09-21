@@ -1,3 +1,4 @@
+import json
 import random
 from random import choice, randint, shuffle
 from tkinter import *
@@ -89,6 +90,7 @@ def save():
     website = website_entry.get()
     username = username_entry.get()
     password = password_entry.get()
+    new_data = {website: {"username": username, "password": password}}
 
     # checks if fields are empty
     if len(website) == 0 or len(password) == 0:
@@ -97,17 +99,35 @@ def save():
         )
     else:
         # Confirmation popup
-        is_ok = messagebox.askokcancel(
-            title=website,
-            message=f"These are the details entered: \nUsername: {username} \nPassword: {password} \nIs it okay to save?",
-        )
+        # is_ok = messagebox.askokcancel(
+        #     title=website,
+        #     message=f"These are the details entered: \nUsername: {username} \nPassword: {password} \nIs it okay to save?",
+        # )
 
-        if is_ok:
-            # Using with will close the file automatically without having to end with .close()
-            with open("data.txt", "a") as data_file:
-                data_file.write(f"{website} | {username} | {password}\n")
-                website_entry.delete(0, END)
-                password_entry.delete(0, END)
+        # if is_ok:
+        # Using with will close the file automatically without having to end with .close()
+        # with open("data.txt", "a") as data_file:
+        #     data_file.write(f"{website} | {username} | {password}\n")
+        #     website_entry.delete(0, END)
+        #     password_entry.delete(0, END)
+        try:
+            with open("data.json", "r") as data_file:
+                # Reading old data
+                data = json.load(data_file)
+        except FileNotFoundError:
+            with open("data.json", "w") as data_file:
+                # Saving updated data
+                json.dump(new_data, data_file, indent=4)
+        else:
+            # Updating old data with new data
+            data.update(new_data)
+
+            with open("data.json", "w") as data_file:
+                # Saving updated data
+                json.dump(data, data_file, indent=4)
+        finally:
+            website_entry.delete(0, END)
+            password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
