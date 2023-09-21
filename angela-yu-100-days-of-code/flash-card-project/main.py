@@ -14,4 +14,20 @@ canvas.create_text(400, 263, text="word", font=("Arial", 60, "bold"), fill="blac
 canvas.config(bg=BACKGROUND_COLOR, highlightthickness=0)
 canvas.grid(row=0, column=0, columnspan=2)
 
+cross_image = PhotoImage(file="images/wrong.png")
+cross_button = Button(
+    image=cross_image,
+    highlightthickness=0,
+    highlightbackground=BACKGROUND_COLOR,
+)
+cross_button.grid(row=1, column=0)
+
+check_image = PhotoImage(file="images/right.png")
+check_button = Button(
+    image=check_image,
+    highlightthickness=0,
+    highlightbackground=BACKGROUND_COLOR,
+)
+check_button.grid(row=1, column=1)
+
 window.mainloop()
