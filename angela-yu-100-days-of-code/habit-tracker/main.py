@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 import requests
 from dotenv import load_dotenv
@@ -42,7 +43,9 @@ headers = {
 
 record_endpoint = f"{graph_endpoint}/{graph_id}"
 
-record_config = {"date": "20230923", "quantity": "120"}
+today = datetime.now()
+
+record_config = {"date": today.strftime("%Y%m%d"), "quantity": "120"}
 
 response = requests.post(url=record_endpoint, json=record_config, headers=headers)
 print(response.text)
