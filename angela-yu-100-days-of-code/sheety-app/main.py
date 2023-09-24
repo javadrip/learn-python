@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 import requests
 from dotenv import load_dotenv
@@ -33,3 +34,22 @@ parameters = {
 response = requests.post(exercise_endpoint, json=parameters, headers=headers)
 result = response.json()
 print(result)
+
+sheety_endpoint = os.getenv("SHEETY_ENDPOINT")
+
+today_date = datetime.now().strftime("%d/%m/%Y")
+now_time = datetime.now().strftime("%X")
+
+for exercise in result["exercises"]:
+    sheet_inputs = {
+        "workout": {
+            "date": today_date,
+            "time": now_time,
+            "exercise": exercise["name"].title(),
+            "duration": exercise["duration_min"],
+            "calories": exercise["nf_calories"],
+        }
+    }
+
+    sheety_response = requests.post(sheety_endpoint, json=sheet_inputs)
+    print(sheety_response.text)
