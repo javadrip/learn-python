@@ -39,3 +39,10 @@ headers = {
 
 # response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
 # print(response.text)
+
+record_endpoint = f"{graph_endpoint}/{graph_id}"
+
+record_config = {"date": "20230923", "quantity": "120"}
+
+response = requests.post(url=record_endpoint, json=record_config, headers=headers)
+print(response.text)
