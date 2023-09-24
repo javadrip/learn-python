@@ -41,11 +41,29 @@ headers = {
 # response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
 # print(response.text)
 
+# Adds a new record to the graph
 record_endpoint = f"{graph_endpoint}/{graph_id}"
 
 today = datetime.now()
+today_formatted = today.strftime("%Y%m%d")
 
-record_config = {"date": today.strftime("%Y%m%d"), "quantity": "120"}
+record_config = {"date": today_formatted, "quantity": "120"}
 
-response = requests.post(url=record_endpoint, json=record_config, headers=headers)
+# response = requests.post(url=record_endpoint, json=record_config, headers=headers)
+# print(response.text)
+
+# Updates a record on the graph
+update_endpoint = f"{record_endpoint}/{today_formatted}"
+
+new_pixel_data = {"quantity": "180"}
+
+# response = requests.post(url=update_endpoint, json=new_pixel_data, headers=headers)
+# print(response.text)
+
+# Deletes a record from the graph
+delete_endpoint = (
+    f"{pixela_endpoint}/{pixela_username}/graphs/{graph_id}/{today_formatted}"
+)
+
+response = requests.post(url=delete_endpoint, headers=headers)
 print(response.text)
