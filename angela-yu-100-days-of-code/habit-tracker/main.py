@@ -61,9 +61,7 @@ new_pixel_data = {"quantity": "180"}
 # print(response.text)
 
 # Deletes a record from the graph
-delete_endpoint = (
-    f"{pixela_endpoint}/{pixela_username}/graphs/{graph_id}/{today_formatted}"
-)
+delete_endpoint = update_endpoint
 
 response = requests.post(url=delete_endpoint, headers=headers)
 print(response.text)
