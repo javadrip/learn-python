@@ -1,3 +1,5 @@
+# Select Conda python interpreter for this to work
+
 import turtle as t
 
 tim = t.Turtle()

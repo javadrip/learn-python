@@ -1,4 +1,4 @@
-# Use Conda interpreter if the screen is buggy
+# Select Conda python interpreter for this to work
 
 import random
 import turtle as t

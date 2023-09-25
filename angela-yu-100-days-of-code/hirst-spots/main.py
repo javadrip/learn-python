@@ -1,3 +1,5 @@
+# Select Conda python interpreter for this to work
+
 # import colorgram
 
 # number_of_colors = 10

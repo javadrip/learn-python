@@ -1,3 +1,5 @@
+# Select Conda python interpreter for this to work
+
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
