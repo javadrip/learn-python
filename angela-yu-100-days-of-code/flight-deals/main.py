@@ -36,3 +36,7 @@ for destination in sheet_data:
         from_time=tomorrow,
         to_time=six_month_from_today
     )
+
+    # If the flight data is empty, the code continues.
+    if flight is None:
+        continue
