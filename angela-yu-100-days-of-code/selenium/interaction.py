@@ -1,5 +1,3 @@
-import time
-
 from fake_useragent import UserAgent
 from selenium import webdriver
 from selenium.webdriver.common.by import By
